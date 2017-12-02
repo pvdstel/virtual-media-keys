@@ -9,11 +9,43 @@ There are currently two flavors: arrow keys and navigation keys. The first
 one binds to the arrow keys, while the second one binds to navigation
 keys.
 
-| Command | Arrows | Navigation |
-|---------|--------|------------|
-| Play/pause | <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>↑</kbd><br/><kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>↓</kbd> | <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>PgUp</kbd><br/><kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>PgDn</kbd> |
-| Previous | <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>←</kbd> | <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Home</kbd> |
-| Next | <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>→</kbd> | <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>End</kbd> |
+<table>
+    <thead>
+        <tr>
+            <th rowspan="2">Command</th>
+            <th colspan="2">Flavor</th>
+        </tr>
+        <tr>
+            <th>Arrows</th>
+            <th>Navigation</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>Play/pause</th>
+            <td>
+                <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>↑</kbd>
+                <br/>
+                <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>↓</kbd>
+            </td>
+            <td>
+                <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>PgUp</kbd>
+                <br/>
+                <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>PgDn</kbd>
+            </td>
+        </tr>
+        <tr>
+            <th>Previous</th>
+            <td><kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>←</kbd></td>
+            <td><kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Home</kbd></td>
+        </tr>
+        <tr>
+            <th>Next</th>
+            <td><kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>→</kbd></td>
+            <td><kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>End</kbd></td>
+        </tr>
+    </tbody>
+</table>
 
 ## Running / compiling
 
