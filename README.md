@@ -2,7 +2,8 @@
 
 Some [AutoHotkey](https://autohotkey.com/) scripts meant for people with
 keyboards without media keys. These scripts intercept some hotkeys and
-send media keys in their place.
+send media keys in their place. You may download the scripts from the
+`src` folder, or you can get the compiled binaries from the Releases page.
 
 There are currently two flavors: arrow keys and navigation keys. The first
 one binds to the arrow keys, while the second one binds to navigation
