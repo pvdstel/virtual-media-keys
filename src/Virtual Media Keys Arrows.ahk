@@ -11,7 +11,7 @@
 
 ; Volume keys
 
-+^!Left::Send   {Volume_Down}
-+^!Up::Send     {Volume_Mute}
-+^!Down::Send   {Volume_Mute}
-+^!Right::Send  {Volume_Up}
++^!Left::Send   {Volume_Mute}
++^!Up::Send     {Volume_Up}
++^!Down::Send   {Volume_Down}
++^!Right::Send  {Volume_Mute}
