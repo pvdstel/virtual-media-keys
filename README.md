@@ -44,8 +44,6 @@ keys.
             <td><kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>→</kbd></td>
             <td><kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>End</kbd></td>
         </tr>
-    </tbody>
-    <tbody>
         <tr>
             <th>Volume up</th>
             <td><kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>↑</kbd></td>
