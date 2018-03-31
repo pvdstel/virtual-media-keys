@@ -45,6 +45,31 @@ keys.
             <td><kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>End</kbd></td>
         </tr>
     </tbody>
+    <tbody>
+        <tr>
+            <th>Volume up</th>
+            <td><kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>↑</kbd></td>
+            <td><kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>PgUp</kbd></td>
+        </tr>
+        <tr>
+            <th>Volume down</th>
+            <td><kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>↓</kbd></td>
+            <td><kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>PgDn</kbd></td>
+        </tr>
+        <tr>
+            <th>Mute</th>
+            <td>
+                <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>←</kbd>
+                <br/>
+                <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>→</kbd>
+            </td>
+            <td>
+                <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>Home</kbd>
+                <br/>
+                <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>End</kbd>
+            </td>
+        </tr>
+    </tbody>
 </table>
 
 ## Running / compiling
