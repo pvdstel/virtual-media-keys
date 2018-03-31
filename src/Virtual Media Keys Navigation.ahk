@@ -8,3 +8,10 @@
 ^!PgUp::Send    {Media_Play_Pause}
 ^!PgDn::Send    {Media_Play_Pause}
 ^!End::Send     {Media_Next}
+
+; Volume keys
+
++^!Left::Send   {Volume_Down}
++^!Up::Send     {Volume_Mute}
++^!Down::Send   {Volume_Mute}
++^!Right::Send  {Volume_Up}
