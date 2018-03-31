@@ -11,7 +11,7 @@
 
 ; Volume keys
 
-+^!Left::Send   {Volume_Down}
-+^!Up::Send     {Volume_Mute}
-+^!Down::Send   {Volume_Mute}
-+^!Right::Send  {Volume_Up}
++^!Home::Send   {Volume_Down}
++^!PgUp::Send   {Volume_Mute}
++^!PgDn::Send   {Volume_Mute}
++^!End::Send    {Volume_Up}
