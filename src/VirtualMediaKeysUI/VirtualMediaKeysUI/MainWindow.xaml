@@ -10,6 +10,7 @@
     Width="200"
     Height="150"
     Background="{DynamicResource AccentColor}"
+    Icon="/VirtualMediaKeysUI;component/AppIcon.ico"
     ShowActivated="False"
     SourceInitialized="Window_SourceInitialized"
     Topmost="True"
