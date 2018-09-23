@@ -9,6 +9,11 @@ There are currently two flavors: arrow keys and navigation keys. The first
 one binds to the arrow keys, while the second one binds to navigation
 keys.
 
+![UI screenshot](static/ui-screenshot.png)
+
+There is also a WPF app for displaying a UI, shown in the screenshot
+above. It functions similar to the Windows on-screen keyboard.
+
 <table>
     <thead>
         <tr>
