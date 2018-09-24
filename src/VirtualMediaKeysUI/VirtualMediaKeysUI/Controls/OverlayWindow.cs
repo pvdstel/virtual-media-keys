@@ -21,6 +21,8 @@ namespace VirtualMediaKeysUI.Controls
         private const string AccentColorKey = "AccentColor";
         private const string ForegroundColorKey = "ForegroundColor";
 
+        public static DependencyProperty TrackAccentColorProperty = DependencyProperty.Register(nameof(TrackAccentColor), typeof(bool), typeof(OverlayWindow), new PropertyMetadata(true, (e, v) => ((OverlayWindow)e).UpdateColor()));
+
         private static Brush LightAccentForegroundColor = new SolidColorBrush(Color.FromRgb(51, 51, 51));
         private static Brush DarkAccentForegroundColor = Brushes.White;
 
@@ -38,15 +40,29 @@ namespace VirtualMediaKeysUI.Controls
             );
         }
 
+        public bool TrackAccentColor
+        {
+            get => (bool)GetValue(TrackAccentColorProperty);
+            set => SetValue(TrackAccentColorProperty, value);
+        }
+
         /// <summary>
         /// Sets the accent color to the system color.
         /// </summary>
         protected void UpdateColor()
         {
-            var color = DWM.GetDwmColor();
-            bool isBright = ColorUtil.DwmBrightness(color) > 128;
-            Resources[AccentColorKey] = new SolidColorBrush(Color.FromRgb(color.R, color.G, color.B));
-            Resources[ForegroundColorKey] = isBright ? LightAccentForegroundColor : DarkAccentForegroundColor;
+            if (TrackAccentColor)
+            {
+                var color = DWM.GetDwmColor();
+                bool isBright = ColorUtil.DwmBrightness(color) > 128;
+                Resources[AccentColorKey] = new SolidColorBrush(Color.FromRgb(color.R, color.G, color.B));
+                Resources[ForegroundColorKey] = isBright ? LightAccentForegroundColor : DarkAccentForegroundColor;
+            }
+            else
+            {
+                Resources[AccentColorKey] = null;
+                Resources[ForegroundColorKey] = null;
+            }
         }
 
         public override void OnApplyTemplate()
@@ -79,7 +95,7 @@ namespace VirtualMediaKeysUI.Controls
             IntPtr handle = new WindowInteropHelper(this).Handle;
             HwndSource.FromHwnd(handle).AddHook(WndProc);
             UpdateColor();
-                       
+
             // Set up custom window flags
             WindowManagement.SetWindowLongPtr(
                 new System.Runtime.InteropServices.HandleRef(null, handle),
