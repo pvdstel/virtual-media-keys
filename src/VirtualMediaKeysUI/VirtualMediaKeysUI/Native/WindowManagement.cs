@@ -13,10 +13,17 @@ namespace VirtualMediaKeysUI.Native
         public const int WS_EX_NOACTIVATE = 0x08000000;
         public const int WS_EX_APPWINDOW = 0x00040000;
 
-        [DllImport("user32.dll", EntryPoint = "SetWindowLongPtr")]
-        public static extern IntPtr SetWindowLongPtr64(HandleRef hWnd, int nIndex, IntPtr dwNewLong);
+        public static IntPtr SetWindowLongPtr(HandleRef hWnd, int nIndex, IntPtr dwNewLong)
+        {
+            if (IntPtr.Size == 8)
+                return SetWindowLongPtr64(hWnd, nIndex, dwNewLong);
+            else
+                return new IntPtr(SetWindowLong32(hWnd, nIndex, dwNewLong.ToInt32()));
+        }
 
-        [DllImport("user32.dll", EntryPoint = "GetWindowLongPtr")]
-        public static extern IntPtr GetWindowLongPtr64(HandleRef hWnd, int nIndex);
+        [DllImport("user32.dll", EntryPoint = "SetWindowLong")]
+        private static extern int SetWindowLong32(HandleRef hWnd, int nIndex, int dwNewLong);
+        [DllImport("user32.dll", EntryPoint = "SetWindowLongPtr")]
+        private static extern IntPtr SetWindowLongPtr64(HandleRef hWnd, int nIndex, IntPtr dwNewLong);
     }
 }
