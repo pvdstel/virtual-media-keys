@@ -5,9 +5,9 @@
     xmlns:controls="clr-namespace:VirtualMediaKeysUI.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Title="Virtual Media Keys"
-    Width="176"
-    Height="134"
+    Title="Media Keys"
+    Width="120"
+    Height="120"
     Background="{DynamicResource AccentColor}"
     Icon="/VirtualMediaKeysUI;component/AppIcon.ico"
     ShowActivated="False"
@@ -19,10 +19,10 @@
     <Grid Background="{DynamicResource AccentColor}">
         <Grid.Resources>
             <Style BasedOn="{StaticResource TransparentButtonStyle}" TargetType="{x:Type Button}">
-                <Setter Property="Margin" Value="4" />
+                <Setter Property="Margin" Value="2" />
             </Style>
             <Style BasedOn="{StaticResource TransparentRepeatButtonStyle}" TargetType="{x:Type RepeatButton}">
-                <Setter Property="Margin" Value="4" />
+                <Setter Property="Margin" Value="2" />
             </Style>
         </Grid.Resources>
         <Grid.ColumnDefinitions>
