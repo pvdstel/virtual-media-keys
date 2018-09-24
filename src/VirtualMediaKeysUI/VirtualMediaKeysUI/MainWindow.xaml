@@ -7,8 +7,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:shell="clr-namespace:Microsoft.Windows.Shell;assembly=Microsoft.Windows.Shell"
     Title="Virtual Media Keys"
-    Width="200"
-    Height="150"
+    Width="176"
+    Height="134"
     Background="{DynamicResource AccentColor}"
     Icon="/VirtualMediaKeysUI;component/AppIcon.ico"
     ShowActivated="False"
@@ -126,10 +126,10 @@
     <Grid Background="{DynamicResource AccentColor}">
         <Grid.Resources>
             <Style BasedOn="{StaticResource TransparentButtonStyle}" TargetType="{x:Type Button}">
-                <Setter Property="Margin" Value="8" />
+                <Setter Property="Margin" Value="4" />
             </Style>
             <Style BasedOn="{StaticResource TransparentRepeatButtonStyle}" TargetType="{x:Type RepeatButton}">
-                <Setter Property="Margin" Value="8" />
+                <Setter Property="Margin" Value="4" />
             </Style>
         </Grid.Resources>
         <Grid.ColumnDefinitions>
