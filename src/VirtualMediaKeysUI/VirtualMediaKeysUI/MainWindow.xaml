@@ -1,135 +1,28 @@
-﻿<Window
+﻿<controls:OverlayWindow
     x:Class="VirtualMediaKeysUI.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:VirtualMediaKeysUI.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="clr-namespace:VirtualMediaKeysUI"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:shell="clr-namespace:Microsoft.Windows.Shell;assembly=Microsoft.Windows.Shell"
     Title="Virtual Media Keys"
-    Width="200"
-    Height="150"
+    Width="176"
+    Height="134"
     Background="{DynamicResource AccentColor}"
     Icon="/VirtualMediaKeysUI;component/AppIcon.ico"
     ShowActivated="False"
-    SourceInitialized="Window_SourceInitialized"
+    Style="{DynamicResource OverlayWindowStyle}"
     Topmost="True"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
-    <Window.Resources>
-        <Style x:Key="TransparentButtonStyle" TargetType="{x:Type Button}">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type Button}">
-                        <Border Padding="{TemplateBinding Padding}" Background="Transparent">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Opacity" Value="0.75" />
-                </Trigger>
-                <Trigger Property="IsPressed" Value="True">
-                    <Setter Property="Opacity" Value="0.5" />
-                </Trigger>
-            </Style.Triggers>
-        </Style>
-        <Style x:Key="TransparentRepeatButtonStyle" TargetType="{x:Type RepeatButton}">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type RepeatButton}">
-                        <Border Padding="{TemplateBinding Padding}" Background="Transparent">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Opacity" Value="0.75" />
-                </Trigger>
-                <Trigger Property="IsPressed" Value="True">
-                    <Setter Property="Opacity" Value="0.5" />
-                </Trigger>
-            </Style.Triggers>
-        </Style>
-        <SolidColorBrush x:Key="AccentColor">#FF333333</SolidColorBrush>
-        <SolidColorBrush x:Key="ForegroundColor">White</SolidColorBrush>
-    </Window.Resources>
-    <Window.Style>
-        <Style TargetType="Window">
-            <Setter Property="shell:WindowChrome.WindowChrome">
-                <Setter.Value>
-                    <shell:WindowChrome
-                        CaptionHeight="0"
-                        CornerRadius="0"
-                        GlassFrameThickness="1"
-                        ResizeBorderThickness="8" />
-                </Setter.Value>
-            </Setter>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Window">
-                        <Border
-                            Margin="0"
-                            Padding="8"
-                            Background="{TemplateBinding Background}">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition />
-                                    <ColumnDefinition Width="Auto" />
-                                </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="32" />
-                                    <RowDefinition Height="8" />
-                                    <RowDefinition />
-                                </Grid.RowDefinitions>
-                                <TextBlock
-                                    Margin="8,0,0,0"
-                                    VerticalAlignment="Center"
-                                    FontSize="14"
-                                    Foreground="{DynamicResource ForegroundColor}"
-                                    Text="{TemplateBinding Title}"
-                                    TextTrimming="CharacterEllipsis" />
-                                <Rectangle
-                                    Grid.RowSpan="2"
-                                    Grid.ColumnSpan="2"
-                                    Fill="Transparent"
-                                    MouseLeftButtonDown="Caption_MouseLeftButtonDown" />
-                                <Button
-                                    Grid.Column="1"
-                                    HorizontalAlignment="Right"
-                                    HorizontalContentAlignment="Stretch"
-                                    VerticalContentAlignment="Stretch"
-                                    Click="Close_Click"
-                                    Style="{StaticResource TransparentButtonStyle}">
-                                    <Viewbox>
-                                        <Canvas Width="24" Height="24">
-                                            <Path Data="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" Fill="{DynamicResource ForegroundColor}" />
-                                        </Canvas>
-                                    </Viewbox>
-                                </Button>
-                                <ContentPresenter
-                                    Grid.Row="2"
-                                    Grid.ColumnSpan="2"
-                                    Content="{TemplateBinding Content}" />
-                            </Grid>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </Window.Style>
 
     <Grid Background="{DynamicResource AccentColor}">
         <Grid.Resources>
             <Style BasedOn="{StaticResource TransparentButtonStyle}" TargetType="{x:Type Button}">
-                <Setter Property="Margin" Value="8" />
+                <Setter Property="Margin" Value="4" />
             </Style>
             <Style BasedOn="{StaticResource TransparentRepeatButtonStyle}" TargetType="{x:Type RepeatButton}">
-                <Setter Property="Margin" Value="8" />
+                <Setter Property="Margin" Value="4" />
             </Style>
         </Grid.Resources>
         <Grid.ColumnDefinitions>
@@ -141,28 +34,37 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Button Click="Previous_Click">
+        <Button Click="Previous_Click" MouseRightButtonDown="MediaButton_MouseRightButtonDown">
             <Viewbox>
                 <Canvas Width="24" Height="24">
                     <Path Data="M6,18V6H8V18H6M9.5,12L18,6V18L9.5,12Z" Fill="{DynamicResource ForegroundColor}" />
                 </Canvas>
             </Viewbox>
         </Button>
-        <Button Grid.Column="1" Click="Pause_Click">
+        <Button
+            Grid.Column="1"
+            Click="Pause_Click"
+            MouseRightButtonDown="MediaButton_MouseRightButtonDown">
             <Viewbox>
                 <Canvas Width="24" Height="24">
                     <Path Data="M3,5V19L11,12M13,19H16V5H13M18,5V19H21V5" Fill="{DynamicResource ForegroundColor}" />
                 </Canvas>
             </Viewbox>
         </Button>
-        <Button Grid.Column="2" Click="Next_Click">
+        <Button
+            Grid.Column="2"
+            Click="Next_Click"
+            MouseRightButtonDown="MediaButton_MouseRightButtonDown">
             <Viewbox>
                 <Canvas Width="24" Height="24">
                     <Path Data="M16,18H18V6H16M6,18L14.5,12L6,6V18Z" Fill="{DynamicResource ForegroundColor}" />
                 </Canvas>
             </Viewbox>
         </Button>
-        <RepeatButton Grid.Row="1" Click="VolumeDown_Click">
+        <RepeatButton
+            Grid.Row="1"
+            Click="VolumeDown_Click"
+            MouseRightButtonDown="VolumeButton_MouseRightButtonDown">
             <Viewbox>
                 <Canvas Width="24" Height="24">
                     <Path Data="M5,9V15H9L14,20V4L9,9M18.5,12C18.5,10.23 17.5,8.71 16,7.97V16C17.5,15.29 18.5,13.76 18.5,12Z" Fill="{DynamicResource ForegroundColor}" />
@@ -172,7 +74,8 @@
         <Button
             Grid.Row="1"
             Grid.Column="1"
-            Click="VolumeMute_Click">
+            Click="VolumeMute_Click"
+            MouseRightButtonDown="VolumeButton_MouseRightButtonDown">
             <Viewbox>
                 <Canvas Width="24" Height="24">
                     <Path Data="M12,4L9.91,6.09L12,8.18M4.27,3L3,4.27L7.73,9H3V15H7L12,20V13.27L16.25,17.53C15.58,18.04 14.83,18.46 14,18.7V20.77C15.38,20.45 16.63,19.82 17.68,18.96L19.73,21L21,19.73L12,10.73M19,12C19,12.94 18.8,13.82 18.46,14.64L19.97,16.15C20.62,14.91 21,13.5 21,12C21,7.72 18,4.14 14,3.23V5.29C16.89,6.15 19,8.83 19,12M16.5,12C16.5,10.23 15.5,8.71 14,7.97V10.18L16.45,12.63C16.5,12.43 16.5,12.21 16.5,12Z" Fill="{DynamicResource ForegroundColor}" />
@@ -182,7 +85,8 @@
         <RepeatButton
             Grid.Row="1"
             Grid.Column="2"
-            Click="VolumeUp_Click">
+            Click="VolumeUp_Click"
+            MouseRightButtonDown="VolumeButton_MouseRightButtonDown">
             <Viewbox>
                 <Canvas Width="24" Height="24">
                     <Path Data="M14,3.23V5.29C16.89,6.15 19,8.83 19,12C19,15.17 16.89,17.84 14,18.7V20.77C18,19.86 21,16.28 21,12C21,7.72 18,4.14 14,3.23M16.5,12C16.5,10.23 15.5,8.71 14,7.97V16C15.5,15.29 16.5,13.76 16.5,12M3,9V15H7L12,20V4L7,9H3Z" Fill="{DynamicResource ForegroundColor}" />
@@ -190,4 +94,4 @@
             </Viewbox>
         </RepeatButton>
     </Grid>
-</Window>
+</controls:OverlayWindow>

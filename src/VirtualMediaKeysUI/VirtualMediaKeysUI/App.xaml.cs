@@ -13,5 +13,7 @@ namespace VirtualMediaKeysUI
     /// </summary>
     public partial class App : Application
     {
+        public const string AccentColorKey = "AccentColor";
+        public const string ForegroundColorKey = "ForegroundColor";
     }
 }
