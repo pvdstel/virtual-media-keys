@@ -20,6 +20,7 @@ namespace VirtualMediaKeysUI.Controls
         private const string PART_CloseButton = "PART_CloseButton";
 
         public static DependencyProperty TrackAccentColorProperty = DependencyProperty.Register(nameof(TrackAccentColor), typeof(bool), typeof(OverlayWindow), new PropertyMetadata(true, (e, v) => ((OverlayWindow)e).UpdateColor()));
+        public static DependencyProperty ShowTitlebarProperty = DependencyProperty.Register(nameof(ShowTitlebar), typeof(bool), typeof(OverlayWindow), new PropertyMetadata(true));
 
         private static Brush LightAccentForegroundColor = new SolidColorBrush(Color.FromRgb(51, 51, 51));
         private static Brush DarkAccentForegroundColor = Brushes.White;
@@ -38,10 +39,22 @@ namespace VirtualMediaKeysUI.Controls
             );
         }
 
+        /// <summary>
+        /// Gets or sets whether the color of the window is set to the system accent color.
+        /// </summary>
         public bool TrackAccentColor
         {
             get => (bool)GetValue(TrackAccentColorProperty);
             set => SetValue(TrackAccentColorProperty, value);
+        }
+
+        /// <summary>
+        /// Gets or sets whether the title bar is shown.
+        /// </summary>
+        public bool ShowTitlebar
+        {
+            get => (bool)GetValue(ShowTitlebarProperty);
+            set => SetValue(ShowTitlebarProperty, value);
         }
 
         /// <summary>

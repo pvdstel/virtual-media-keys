@@ -1,11 +1,7 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Input;
-using System.Windows.Interop;
-using System.Windows.Media;
 using VirtualMediaKeysUI.Controls;
 using VirtualMediaKeysUI.Native;
-using VirtualMediaKeysUI.Util;
 
 namespace VirtualMediaKeysUI
 {
@@ -47,6 +43,28 @@ namespace VirtualMediaKeysUI
         private void VolumeUp_Click(object sender, RoutedEventArgs e)
         {
             Input.SendKeyPress(Input.KeyCode.VOLUME_UP);
+        }
+
+        private void MediaButton_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            const int TitlebarVerticalInfluence = 24;
+            if (ShowTitlebar)
+            {
+                ShowTitlebar = false;
+                Height -= TitlebarVerticalInfluence;
+                Top += TitlebarVerticalInfluence;
+            }
+            else
+            {
+                ShowTitlebar = true;
+                Height += TitlebarVerticalInfluence;
+                Top -= TitlebarVerticalInfluence;
+            }
+        }
+
+        private void VolumeButton_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            TrackAccentColor = !TrackAccentColor;
         }
     }
 }

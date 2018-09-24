@@ -3,6 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:VirtualMediaKeysUI.Controls"
     xmlns:shell="clr-namespace:Microsoft.Windows.Shell;assembly=Microsoft.Windows.Shell">
+    <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
 
     <SolidColorBrush x:Key="AccentColor">#FF333333</SolidColorBrush>
     <SolidColorBrush x:Key="ForegroundColor">White</SolidColorBrush>
@@ -19,7 +20,7 @@
         </Setter>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="Window">
+                <ControlTemplate TargetType="{x:Type controls:OverlayWindow}">
                     <Border
                         Margin="0"
                         Padding="8"
@@ -31,7 +32,6 @@
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto" />
-                                <RowDefinition Height="4" />
                                 <RowDefinition />
                             </Grid.RowDefinitions>
                             <TextBlock
@@ -40,19 +40,23 @@
                                 FontSize="14"
                                 Foreground="{DynamicResource ForegroundColor}"
                                 Text="{TemplateBinding Title}"
-                                TextTrimming="CharacterEllipsis" />
+                                TextTrimming="CharacterEllipsis"
+                                Visibility="{Binding ShowTitlebar, Converter={StaticResource BooleanToVisibilityConverter}, RelativeSource={RelativeSource TemplatedParent}}" />
                             <Rectangle
                                 x:Name="PART_TitleDragArea"
                                 Grid.RowSpan="2"
                                 Grid.ColumnSpan="2"
-                                Fill="Transparent" />
+                                Fill="Transparent"
+                                Visibility="{Binding ShowTitlebar, Converter={StaticResource BooleanToVisibilityConverter}, RelativeSource={RelativeSource TemplatedParent}}" />
                             <Button
                                 x:Name="PART_CloseButton"
                                 Grid.Column="1"
+                                Margin="4,0,0,4"
                                 HorizontalAlignment="Right"
                                 HorizontalContentAlignment="Stretch"
                                 VerticalContentAlignment="Stretch"
-                                Style="{DynamicResource TransparentButtonStyle}">
+                                Style="{DynamicResource TransparentButtonStyle}"
+                                Visibility="{Binding ShowTitlebar, Converter={StaticResource BooleanToVisibilityConverter}, RelativeSource={RelativeSource TemplatedParent}}">
                                 <Viewbox>
                                     <Canvas Width="24" Height="24">
                                         <Path Data="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" Fill="{DynamicResource ForegroundColor}" />
@@ -60,7 +64,7 @@
                                 </Viewbox>
                             </Button>
                             <ContentPresenter
-                                Grid.Row="2"
+                                Grid.Row="1"
                                 Grid.ColumnSpan="2"
                                 Content="{TemplateBinding Content}" />
                         </Grid>
