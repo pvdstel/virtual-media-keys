@@ -6,8 +6,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="Media Keys"
-    Width="120"
-    Height="120"
+    Width="126"
+    Height="124"
     Background="{DynamicResource AccentColor}"
     Icon="/VirtualMediaKeysUI;component/AppIcon.ico"
     ShowActivated="False"
@@ -16,13 +16,13 @@
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
 
-    <Grid Background="{DynamicResource AccentColor}">
+    <Grid Margin="-4" Background="{DynamicResource AccentColor}">
         <Grid.Resources>
             <Style BasedOn="{StaticResource TransparentButtonStyle}" TargetType="{x:Type Button}">
-                <Setter Property="Margin" Value="2" />
+                <Setter Property="Margin" Value="4" />
             </Style>
             <Style BasedOn="{StaticResource TransparentRepeatButtonStyle}" TargetType="{x:Type RepeatButton}">
-                <Setter Property="Margin" Value="2" />
+                <Setter Property="Margin" Value="4" />
             </Style>
         </Grid.Resources>
         <Grid.ColumnDefinitions>

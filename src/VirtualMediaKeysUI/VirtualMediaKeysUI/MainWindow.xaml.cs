@@ -47,7 +47,7 @@ namespace VirtualMediaKeysUI
 
         private void MediaButton_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
-            const int TitlebarVerticalInfluence = 24;
+            const int TitlebarVerticalInfluence = 28;
             if (ShowTitlebar)
             {
                 ShowTitlebar = false;
@@ -57,8 +57,8 @@ namespace VirtualMediaKeysUI
             else
             {
                 ShowTitlebar = true;
-                Height += TitlebarVerticalInfluence;
                 Top -= TitlebarVerticalInfluence;
+                Height += TitlebarVerticalInfluence;
             }
         }
 

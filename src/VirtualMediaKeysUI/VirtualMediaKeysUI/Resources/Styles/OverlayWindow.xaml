@@ -26,47 +26,41 @@
                         Padding="8"
                         Background="{TemplateBinding Background}">
                         <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition />
-                                <ColumnDefinition Width="24" />
-                            </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto" />
                                 <RowDefinition />
                             </Grid.RowDefinitions>
-                            <TextBlock
-                                Margin="8,0,0,0"
-                                VerticalAlignment="Center"
-                                FontSize="14"
-                                Foreground="{DynamicResource ForegroundColor}"
-                                Text="{TemplateBinding Title}"
-                                TextTrimming="CharacterEllipsis"
-                                Visibility="{Binding ShowTitlebar, Converter={StaticResource BooleanToVisibilityConverter}, RelativeSource={RelativeSource TemplatedParent}}" />
-                            <Rectangle
-                                x:Name="PART_TitleDragArea"
-                                Grid.RowSpan="2"
-                                Grid.ColumnSpan="2"
-                                Fill="Transparent"
-                                Visibility="{Binding ShowTitlebar, Converter={StaticResource BooleanToVisibilityConverter}, RelativeSource={RelativeSource TemplatedParent}}" />
-                            <Button
-                                x:Name="PART_CloseButton"
-                                Grid.Column="1"
-                                Margin="4,0,0,4"
-                                HorizontalAlignment="Right"
-                                HorizontalContentAlignment="Stretch"
-                                VerticalContentAlignment="Stretch"
-                                Style="{DynamicResource TransparentButtonStyle}"
-                                Visibility="{Binding ShowTitlebar, Converter={StaticResource BooleanToVisibilityConverter}, RelativeSource={RelativeSource TemplatedParent}}">
-                                <Viewbox>
-                                    <Canvas Width="24" Height="24">
-                                        <Path Data="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" Fill="{DynamicResource ForegroundColor}" />
-                                    </Canvas>
-                                </Viewbox>
-                            </Button>
-                            <ContentPresenter
-                                Grid.Row="1"
-                                Grid.ColumnSpan="2"
-                                Content="{TemplateBinding Content}" />
+                            <Grid Height="28" Visibility="{Binding ShowTitlebar, Converter={StaticResource BooleanToVisibilityConverter}, RelativeSource={RelativeSource TemplatedParent}}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock
+                                    Margin="8,2,0,0"
+                                    VerticalAlignment="Top"
+                                    FontSize="14"
+                                    Foreground="{DynamicResource ForegroundColor}"
+                                    Text="{TemplateBinding Title}"
+                                    TextTrimming="CharacterEllipsis" />
+                                <Rectangle
+                                    x:Name="PART_TitleDragArea"
+                                    Grid.ColumnSpan="2"
+                                    Fill="Transparent" />
+                                <Button
+                                    x:Name="PART_CloseButton"
+                                    Grid.Column="1"
+                                    Margin="4,0,0,4"
+                                    HorizontalContentAlignment="Stretch"
+                                    VerticalContentAlignment="Stretch"
+                                    Style="{DynamicResource TransparentButtonStyle}">
+                                    <Viewbox>
+                                        <Canvas Width="24" Height="24">
+                                            <Path Data="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" Fill="{DynamicResource ForegroundColor}" />
+                                        </Canvas>
+                                    </Viewbox>
+                                </Button>
+                            </Grid>
+                            <ContentPresenter Grid.Row="1" Content="{TemplateBinding Content}" />
                         </Grid>
                     </Border>
                 </ControlTemplate>
