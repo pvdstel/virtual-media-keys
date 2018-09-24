@@ -9,9 +9,6 @@
                 <ResourceDictionary Source="Resources/Styles/Buttons.xaml" />
                 <ResourceDictionary Source="Resources/Styles/OverlayWindow.xaml" />
             </ResourceDictionary.MergedDictionaries>
-
-            <SolidColorBrush x:Key="AccentColor">#FF333333</SolidColorBrush>
-            <SolidColorBrush x:Key="ForegroundColor">White</SolidColorBrush>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

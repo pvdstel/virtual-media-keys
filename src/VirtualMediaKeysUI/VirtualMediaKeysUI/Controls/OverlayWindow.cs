@@ -18,8 +18,6 @@ namespace VirtualMediaKeysUI.Controls
     {
         private const string PART_TitleDragArea = "PART_TitleDragArea";
         private const string PART_CloseButton = "PART_CloseButton";
-        private const string AccentColorKey = "AccentColor";
-        private const string ForegroundColorKey = "ForegroundColor";
 
         public static DependencyProperty TrackAccentColorProperty = DependencyProperty.Register(nameof(TrackAccentColor), typeof(bool), typeof(OverlayWindow), new PropertyMetadata(true, (e, v) => ((OverlayWindow)e).UpdateColor()));
 
@@ -55,13 +53,13 @@ namespace VirtualMediaKeysUI.Controls
             {
                 var color = DWM.GetDwmColor();
                 bool isBright = ColorUtil.DwmBrightness(color) > 128;
-                Resources[AccentColorKey] = new SolidColorBrush(Color.FromRgb(color.R, color.G, color.B));
-                Resources[ForegroundColorKey] = isBright ? LightAccentForegroundColor : DarkAccentForegroundColor;
+                Resources[App.AccentColorKey] = new SolidColorBrush(Color.FromRgb(color.R, color.G, color.B));
+                Resources[App.ForegroundColorKey] = isBright ? LightAccentForegroundColor : DarkAccentForegroundColor;
             }
             else
             {
-                Resources[AccentColorKey] = null;
-                Resources[ForegroundColorKey] = null;
+                Resources[App.AccentColorKey] = App.Current.Resources[App.AccentColorKey];
+                Resources[App.ForegroundColorKey] = App.Current.Resources[App.ForegroundColorKey];
             }
         }
 

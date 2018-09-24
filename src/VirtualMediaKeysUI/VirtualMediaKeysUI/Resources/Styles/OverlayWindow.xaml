@@ -4,6 +4,9 @@
     xmlns:controls="clr-namespace:VirtualMediaKeysUI.Controls"
     xmlns:shell="clr-namespace:Microsoft.Windows.Shell;assembly=Microsoft.Windows.Shell">
 
+    <SolidColorBrush x:Key="AccentColor">#FF333333</SolidColorBrush>
+    <SolidColorBrush x:Key="ForegroundColor">White</SolidColorBrush>
+
     <Style x:Key="OverlayWindowStyle" TargetType="{x:Type controls:OverlayWindow}">
         <Setter Property="shell:WindowChrome.WindowChrome">
             <Setter.Value>
